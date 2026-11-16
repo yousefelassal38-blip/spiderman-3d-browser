@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spider-Man — Real-time 3D Study</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main id="app">
+    <canvas id="scene" role="img"
+      aria-label="Real-time 3D scene of a masked Spider-Man in a red and blue fabric suit standing on a city rooftop. Use the animation buttons to make him swing, crawl a wall, jump, and fire a web.">
+      Your browser does not support the canvas element required to show this 3D scene.
+    </canvas>
+
+    <header class="overlay title-card">
+      <h1>Spider-Man</h1>
+      <p>Classic Suit · real-time 3D study</p>
+    </header>
+
+    <nav class="overlay controls" aria-label="Animation controls">
+      <h2>Movements</h2>
+      <div class="button-row">
+        <button type="button" class="anim-btn" data-anim="swing" aria-pressed="false">
+          <span class="key" aria-hidden="true">1</span><span>Web swing</span>
+        </button>
+        <button type="button" class="anim-btn" data-anim="crawl" aria-pressed="false">
+          <span class="key" aria-hidden="true">2</span><span>Wall crawl</span>
+        </button>
+        <button type="button" class="anim-btn" data-anim="jump" aria-pressed="false">
+          <span class="key" aria-hidden="true">3</span><span>Somersault</span>
+        </button>
+        <button type="button" class="anim-btn" data-anim="shoot" aria-pressed="false">
+          <span class="key" aria-hidden="true">4</span><span>Web shot</span>
+        </button>
+      </div>
+      <div class="button-row secondary">
+        <button type="button" id="playBtn" aria-pressed="true">Pause</button>
+        <button type="button" id="autoBtn" aria-pressed="false">Auto-play: off</button>
+        <button type="button" id="viewBtn">Reset view</button>
+      </div>
+      <p class="hint">Drag to orbit · scroll to zoom · keys 1–4 · Space to pause</p>
+    </nav>
+
+    <p id="status" class="overlay status" role="status" aria-live="polite">Ready. Standing at the rest spot.</p>
+  </main>
+
+  <script src="vendor/three.min.js"></script>
+  <script src="js/textures.js"></script>
+  <script src="js/body.js"></script>
+  <script src="js/scene.js"></script>
+  <script src="js/animation.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

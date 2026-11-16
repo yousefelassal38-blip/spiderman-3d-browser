@@ -1,0 +1,108 @@
+:root {
+  --panel: rgba(14, 18, 26, 0.82);
+  --edge: rgba(255, 255, 255, 0.14);
+  --ink: #f4f6f8;
+  --muted: #c3cbd6;
+  --accent: #e8414d;
+  --focus: #ffd166;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #10141c;
+  color: var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+#app { position: relative; width: 100vw; height: 100vh; }
+
+#scene { display: block; width: 100%; height: 100%; touch-action: none; }
+
+.overlay {
+  position: absolute;
+  background: var(--panel);
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  padding: 14px 16px;
+}
+
+.title-card { top: 16px; left: 16px; max-width: 280px; }
+.title-card h1 {
+  margin: 0;
+  font-size: 22px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.title-card p { margin: 4px 0 0; font-size: 12px; color: var(--muted); }
+
+.controls { bottom: 16px; left: 16px; max-width: 520px; }
+.controls h2 {
+  margin: 0 0 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.button-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+
+button {
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  background: #232b38;
+  border: 1px solid var(--edge);
+  border-radius: 8px;
+  min-height: 44px;
+  padding: 8px 12px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+button:hover { background: #303a4b; }
+button[aria-pressed="true"] {
+  background: var(--accent);
+  border-color: #ff6b75;
+  color: #fff;
+}
+button:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+}
+.key {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 11px;
+  flex: none;
+}
+.secondary button { font-size: 12px; padding: 8px 10px; }
+.hint { margin: 4px 0 0; font-size: 11px; color: var(--muted); }
+
+.status {
+  top: 16px;
+  right: 16px;
+  max-width: 260px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+@media (max-width: 620px) {
+  .title-card { max-width: 190px; }
+  .status { top: auto; bottom: 16px; right: 16px; max-width: 150px; }
+  .controls { right: 16px; max-width: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto; }
+}
